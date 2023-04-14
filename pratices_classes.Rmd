@@ -1,0 +1,104 @@
+---
+title: "Practice_Classes"
+author: "Atieno"
+date: "2023-04-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(tidyverse)
+```  
+
+```{r}
+```
+
+
+```{r}
+x < -7
+```
+```{r}
+x
+```
+```{r}
+energy_source <- c("gas","wood","oil","sun","wind","hydroelectric","nuclear")
+energy_source
+energy_source[3]
+energy_source[2:5]
+```
+```{r}
+energy_source[1-5]
+```
+```{r}
+traditional_source <- c(energy_source[1:3],energy_source[5],energy_source[7])
+traditional_source
+```
+```{r}
+length(traditional_source)
+```
+```{r}
+length(energy_source)
+```
+```{r}
+?c
+```
+```{r}
+numbers <- c(1,2,3,4,5,6,7,8,9,10)
+numbers*10
+```
+```{r}
+numbers <- c(10,20,30)
+length(numbers)
+```
+```{r}
+numbers > 7
+```
+```{r}
+numbers<7
+```
+```{r}
+(numbers>7)|(numbers<2)
+(numbers<7)|(numbers<2)
+(numbers>40)|(numbers>7)
+```
+
+
+```{r}
+```
+
+
+```{r}
+my_nums <-(1:6)
+```
+```{r}
+powers <- my_nums^2
+```
+```{r}
+powerData <- tibble(my_nums,powers)
+```
+```{r}
+powerData
+```
+```{r}
+ggplot(data=powerData)
+```
+```{r}
+ggplot(data=powerData) + geom_point(aes(x=my_nums, y=powers))
+```
+```{r}
+p <- ggplot(data=powerData)
+```
+```{r}
+p <- p + geom_point(aes(x=my_nums, y=powers))
+```
+```{r}
+p
+```
+
+
+
+```
+
+
