@@ -1,0 +1,116 @@
+---
+title: "Lab3"
+author: "Atieno"
+date: "2023-02-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+consumptionNoOil <- read.csv("consumptionNoOil.csv", header=T, stringsAsFactors=T)
+ProvenOilReservesZerosT <- read.csv("ProvenOilReservesZerosT.csv", header=T, stringsAsFactors=T)
+ProvenOilReserveWEurope <- read.csv("ProvenOilReserveWEurope.csv", header=T, stringsAsFactors=T)
+channels <- read.csv("channels.csv", header=T, stringsAsFactors=T)
+universities <- read.csv("universities.csv", header=T, stringsAsFactors=T)
+importsExportsAmerica<- read.csv("importsExportsAmerica.csv", header=T, stringsAsFactors=T)
+projectTeam <- read.csv("projectTeam.csv", header=T, stringsAsFactors=T)
+```
+```{r}
+p <- ggplot(importsExportsAmerica, aes(crude.imports,crude.exports, label=country))
+p <- p+geom_text()
+p
+```
+```{r}
+p <- ggplot(projectTeam, aes(site, fill = experience))
+p <- p + geom_bar(position = "stack")
+p
+```
+```{r}
+p <- ggplot(projectTeam, aes(site, fill = experience))
+p <- p + geom_bar(position = "dodge")
+p
+```
+```{r}
+p <- ggplot(projectTeam, aes(site, fill=experience))
+p <- p + geom_bar(position = "fill")
+p
+```
+```{r}
+p <- ggplot(projectTeam, aes(site, fill = experience))
+p <- p + geom_bar(position = "identity")
+p
+```
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year,MTOE, colour=Source))
+p <- p+geom_point()
+p
+```
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year,MTOE, colour=Source)) 
+p <- p + xlim(2010,2035)
+p <- p+geom_point()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year,MTOE, colour=Source))
+p <- p+geom_point()
+p<- p+ labs(x="Year",
+            y= "Millions of tons of oil equivalent", 
+            title ="Energy consumption by source", 
+            subtitle = "Oil is excluded",
+            colour = "Energy source")
+
+p
+```
+
+```{r}
+colours <-c(coal="black", gas="yellow2", renewables="green")
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, colour=Source)) 
+p <- p +geom_point()
+p<-p+labs(x= "Year", 
+          y= "Millions of tons of oil equivalent", 
+          title = "Energy consumed", 
+          colour="Energy source")
+p<- p + scale_colour_manual(values=colours)
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year,MTOE, colour=Source)) 
+p <- p+geom_point()
+p <- p + geom_vline(aes(xintercept = Year ), linetype = "longdash", colour="green")
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year,MTOE, colour=Source)) 
+p <- p+geom_point()
+p <- p + geom_vline(aes(xintercept = 2015),  linetype = "longdash", colour="green")
+p
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

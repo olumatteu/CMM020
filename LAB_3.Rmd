@@ -1,0 +1,130 @@
+---
+title: "LAB3"
+author: "Atieno"
+date: "2023-02-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+consumptionNoOil <- read.csv("consumptionNoOil.csv",header = T,stringsAsFactors = T)
+```
+
+```{r}
+summary(consumptionNoOil)
+head(consumptionNoOil, 5)
+```
+
+```{r}
+p <- ggplot(data= consumptionNoOil, aes(x=MTOE,y=EstMTOE))
+
+```
+
+```{r}
+p <- p + geom_point(colour="violet")
+p
+```
+
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(MTOE, EstMTOE, colour=Source))
+p <- p + geom_point()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(MTOE, EstMTOE, shape=Source))
+p <- p + geom_point()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(MTOE, EstMTOE,
+colour = Source, shape=Source))
+p <- p + geom_point()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE))
+p <- p + geom_line()
+p
+```
+
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, colour=Source))
+p <- p + geom_line()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, group = Source))
+p <- p + geom_line()
+p
+```
+
+```{r}
+p <- p + geom_line(size = 2, colour="darkgreen")
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, group = Source))
+p <- p + geom_point()
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, group = Source))
+p <- p + geom_point()
+p <- p + geom_line()
+p
+```
+
+```{r}
+p <- p + geom_point(shape = 24, colour = "red", size = 4,
+fill = "lightblue")
+p
+```
+
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, group = Source))
+p <- p + geom_line()
+p <- p + geom_smooth(aes(group = 1), formula='y~x',
+method = "lm", size = 2, se = F)
+p
+```
+
+```{r}
+p <- ggplot(consumptionNoOil, aes(Year, MTOE, group = Source))
+p <- p + geom_line()
+p <- p + geom_smooth(aes(group = Source), method = "lm",
+size = 2, se = F)
+p
+```
+EXERCISE 1
+```{r}
+ProvenOilReservesZerosT <- read.csv("ProvenOilReservesZerosT.csv",
+header=T)
+```
+
+```{r}
+summary(ProvenOilReservesZerosT)
+head(ProvenOilReservesZerosT, 5)
+```
+EXERCISE 2
+```{r}
+p <- ggplot(ProvenOilReservesZerosT, aes(Denmark, MTBarrels))
+p <- p + geom_point()
+p
+```
+
